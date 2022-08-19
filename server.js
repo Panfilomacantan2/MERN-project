@@ -17,6 +17,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // USER ROUTES
 import postRoutes from './routes/post.js';
 import userRoutes from './routes/user.js';
+
+app.get('/', (req, res) => {
+	res.send('This Api is made by: @panfilo27');
+});
+
 app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes);
 
