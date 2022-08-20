@@ -1,13 +1,13 @@
 import mongoose from 'mongoose';
 import moment from 'moment-timezone';
-const datePhilippines = moment.tz(Date.now(), 'Asia/Manila');
+const philippineDate = moment.tz('Asia/Manila').format('YYYY-MM-DD HH:mm:ss');
 
 const postSchema = mongoose.Schema({
 	codeName: String,
 	message: String,
 	createdAt: {
 		type: Date,
-		default: datePhilippines,
+		default: () => moment.tz('Asia/Manila').format('YYYY-MM-DD HH:mm:ss'),
 	},
 	category: {
 		type: String,
