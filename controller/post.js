@@ -26,4 +26,15 @@ const getAllPosts = async (req, res) => {
 	}
 };
 
-export { createPost, getAllPosts };
+const deletePost = async (req, res) => {
+	try {
+		const deletePosts = await Post.deleteOne({ _id: req.params.id });
+		if (deletePosts) {
+			res.status(201).send(deletePosts);
+		}
+	} catch (error) {
+		console.log(`Post error: ${error.message}`);
+	}
+};
+
+export { createPost, getAllPosts, deletePost };
