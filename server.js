@@ -15,8 +15,12 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // USER ROUTES
-import postRoutes from './routes/post.js';
 import userRoutes from './routes/user.js';
+// POST ROUTES
+import postRoutes from './routes/post.js';
+// MESSAGE ROUTES
+import messageRoutes from './routes/message.js';
+app.use('/api/user', messageRoutes);
 
 app.get('/', (req, res) => {
 	res.send('This Api is made by: @panfilo27');
