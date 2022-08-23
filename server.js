@@ -9,10 +9,10 @@ initializedDB();
 
 const PORT = process.env.PORT || 3000;
 // MIDDLEWARE
-app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 // USER ROUTES
 import userRoutes from './routes/user.js';
