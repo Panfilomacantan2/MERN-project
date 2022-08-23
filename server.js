@@ -20,15 +20,17 @@ import userRoutes from './routes/user.js';
 import postRoutes from './routes/post.js';
 // MESSAGE ROUTES
 import messageRoutes from './routes/message.js';
-app.use('/api/user', messageRoutes);
 
 app.get('/', (req, res) => {
 	res.send('This Api is made by: @panfilo27');
 });
 
+
 // USER ROUTES
 app.use('/api/user', userRoutes);
 // POST ROUTES
 app.use('/api/post', postRoutes);
+// MESSAGE ROUTES
+app.use('/api/message', messageRoutes);
 
 app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));

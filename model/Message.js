@@ -1,12 +1,11 @@
 import mongoose from 'mongoose';
-import moment from 'moment-timezone';
+import moment from 'moment';
 
 const messageSchema = mongoose.Schema({
 	message: String,
-	user: String,
 	createdAt: {
 		type: Date,
-		default: () => moment.tz('Asia/Manila').format('YYYY-MM-DD HH:mm:ss'),
+		default: () => moment.localeData(),
 	},
 });
 
