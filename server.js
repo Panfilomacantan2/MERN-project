@@ -1,25 +1,46 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { initializedDB } from './DBConnection.js';
+
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const { initializedDB } = require('./DBConnection');
 const app = express();
+
 dotenv.config();
 initializedDB();
 
 const PORT = process.env.PORT || 3000;
 // MIDDLEWARE
-app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 // USER ROUTES
-import postRoutes from './routes/post.js';
-import userRoutes from './routes/user.js';
-app.use('/api/user', userRoutes);
-app.use('/api/post', postRoutes);
-
+const userRoutes = require('./routes/user');
 // POST ROUTES
+const postRoutes = require('./routes/post');
+// MESSAGE ROUTES
+const messageRoutes = require('./routes/message');
+
+// LOGIN ROUTES
+const loginRoutes = require('./routes/auth');
+app.use('/api/login', loginRoutes);
+
+// LOGIN ROUTES
+const dashBoardRoutes = require('./routes/dashBoard');
+app.use('/api/dashboard', dashBoardRoutes);
+
+app.get('/', (req, res) => {
+	res.send('This Api is made by: @panfilo27');
+});
+
+// USER ROUTES
+app.use('/api/user', userRoutes);
+// POST ROUTES
+app.use('/api/post', postRoutes);
+// MESSAGE ROUTES
+app.use('/api/message', messageRoutes);
 
 app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));

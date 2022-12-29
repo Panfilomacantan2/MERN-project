@@ -1,5 +1,4 @@
-import mongoose from 'mongoose';
-import Post from '../model/Post.js';
+const Post = require('../model/Post');
 
 // @params POST && PUBLIC
 const createPost = async (req, res) => {
@@ -26,4 +25,15 @@ const getAllPosts = async (req, res) => {
 	}
 };
 
-export { createPost, getAllPosts };
+const deletePost = async (req, res) => {
+	try {
+		const deletePosts = await Post.deleteOne({ _id: req.params.id });
+		if (deletePosts) {
+			res.status(201).send(deletePosts);
+		}
+	} catch (error) {
+		console.log(`Post error: ${error.message}`);
+	}
+};
+
+module.exports = { createPost, getAllPosts, deletePost };
