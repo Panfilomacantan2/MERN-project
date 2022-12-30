@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import Post from '../model/Post.js';
 
 // @params POST && PUBLIC

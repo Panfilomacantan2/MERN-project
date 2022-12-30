@@ -5,7 +5,7 @@ const messageSchema = mongoose.Schema({
 	message: String,
 	createdAt: {
 		type: Date,
-		default: () => moment.localeData(),
+		default: () => moment.defaultFormat()
 	},
 });
 

@@ -1,4 +1,3 @@
-import mongoose from 'mongoose';
 import Message from '../model/Message.js';
 
 const createMessage = async (req, res) => {

@@ -21,6 +21,14 @@ import postRoutes from './routes/post.js';
 // MESSAGE ROUTES
 import messageRoutes from './routes/message.js';
 
+// LOGIN ROUTES
+import loginRoutes from './routes/auth.js';
+app.use('/api/login', loginRoutes);
+
+// LOGIN ROUTES
+import dashBoardRoutes from './routes/dashBoard.js';
+app.use('/api/dashboard', dashBoardRoutes);
+
 app.get('/', (req, res) => {
 	res.send('This Api is made by: @panfilo27');
 });
