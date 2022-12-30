@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-import { createMessage, postMessage } from '../controller/message.js';
+const { createMessage, postMessage } = require('../controller/message');
 
 router.get('/', createMessage).post('/', postMessage);
 

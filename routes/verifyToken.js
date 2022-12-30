@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-export const verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
 	const token = req.header('token');
 	if (!token) return res.status(400).send('No token.');
 
@@ -8,3 +8,4 @@ export const verifyToken = (req, res, next) => {
 	res.user = verified;
     next();
 };
+module.exports = verifyToken;
