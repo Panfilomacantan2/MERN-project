@@ -1,9 +1,12 @@
-import express from 'express';
+
+
+const express = require('express');
 const router = express.Router();
-import { verifyToken } from '../routes/verifyToken.js';
+const { verifyToken } = require('../routes/verifyToken');
 
 router.get('/', verifyToken, (req, res) => {
 	res.status(200).send('This is DashBoard');
 });
 
-export default router;
+
+module.exports = router;

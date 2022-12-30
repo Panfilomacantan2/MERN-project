@@ -1,4 +1,4 @@
-import Post from '../model/Post.js';
+const Post = require('../model/Post');
 
 // @params POST && PUBLIC
 const createPost = async (req, res) => {
@@ -36,4 +36,4 @@ const deletePost = async (req, res) => {
 	}
 };
 
-export { createPost, getAllPosts, deletePost };
+module.exports = { createPost, getAllPosts, deletePost };

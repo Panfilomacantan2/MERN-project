@@ -1,9 +1,8 @@
-import express from 'express';
-
+const express = require('express');
 const router = express.Router();
 
 import { createMessage, postMessage } from '../controller/message.js';
 
 router.get('/', createMessage).post('/', postMessage);
 
-export default router;
+module.exports = router;

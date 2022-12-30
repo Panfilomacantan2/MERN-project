@@ -1,9 +1,12 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { initializedDB } from './DBConnection.js';
+
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const { initializedDB } = require('./DBConnection.js');
 const app = express();
+
 dotenv.config();
 initializedDB();
 
@@ -15,18 +18,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // USER ROUTES
-import userRoutes from './routes/user.js';
+const userRoutes = require('./routes/user');
 // POST ROUTES
-import postRoutes from './routes/post.js';
+const postRoutes = require('./routes/post');
 // MESSAGE ROUTES
-import messageRoutes from './routes/message.js';
+const messageRoutes = require('./routes/message');
 
 // LOGIN ROUTES
-import loginRoutes from './routes/auth.js';
+const loginRoutes = require('./routes/auth');
 app.use('/api/login', loginRoutes);
 
 // LOGIN ROUTES
-import dashBoardRoutes from './routes/dashBoard.js';
+const dashBoardRoutes = require('./routes/dashBoard');
 app.use('/api/dashboard', dashBoardRoutes);
 
 app.get('/', (req, res) => {

@@ -1,5 +1,7 @@
-import mongoose from 'mongoose';
-import moment from 'moment-timezone';
+
+
+const mongoose = require('mongoose');
+const moment = require('moment-timezone');
 const philippineDate = moment.tz('Asia/Manila').format('YYYY-MM-DD HH:mm:ss');
 
 const postSchema = mongoose.Schema({
@@ -15,4 +17,4 @@ const postSchema = mongoose.Schema({
 	},
 });
 
-export default mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Post', postSchema);

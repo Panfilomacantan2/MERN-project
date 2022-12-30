@@ -1,5 +1,5 @@
 
-import User from '../model/User.js';
+const User = require('../model/User');
 
 const getAllUsers = async (req, res) => {
 	const users = await User.find();
@@ -35,4 +35,4 @@ const deleteUser = async (req, res) => {
 	res.send(user);
 };
 
-export { getAllUsers, getUserById, createUser, updateUser, deleteUser };
+module.exports = { getAllUsers, getUserById, createUser, updateUser, deleteUser };

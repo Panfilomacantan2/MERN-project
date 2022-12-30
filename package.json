@@ -2,8 +2,7 @@
 	"name": "backend",
 	"version": "1.0.0",
 	"description": "",
-	"main": "DBConnection.js",
-	"type": "module",
+	"main": "server.js",
 	"dependencies": {
 		"@hapi/joi": "^17.1.1",
 		"abbrev": "^1.1.1",

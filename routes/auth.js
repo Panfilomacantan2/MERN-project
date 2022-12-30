@@ -1,7 +1,9 @@
-import express from 'express';
+
+
+const express = require('express');
 const router = express.Router();
-import jwt from 'jsonwebtoken';
-import Post from '../model/Post.js';
+const jwt = require('jsonwebtoken');
+const Post = require('../model/Post');
 
 router.post('/', async (req, res) => {
 	const user = Post.find({ codeName: req.body.codeName });
@@ -11,4 +13,4 @@ router.post('/', async (req, res) => {
 	console.log(token);
 });
 
-export default router;
+module.exports = router;
