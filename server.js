@@ -29,8 +29,8 @@ const loginRoutes = require('./routes/auth');
 app.use('/api/login', loginRoutes);
 
 // LOGIN ROUTES
-const dashBoardRoutes = require('./routes/dashBoard');
-app.use('/api/dashboard', dashBoardRoutes);
+// const dashBoardRoutes = require('./routes/dashBoard');
+// app.use('/api/dashboard', dashBoardRoutes);
 
 app.get('/', (req, res) => {
 	res.send('This Api is made by: @panfilo27');
