@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-export const initializedDB = async () => {
+const initializedDB = async () => {
 	try {
 		const response = await mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 		console.log(response ? 'DB connected' : 'DB connection failed');
@@ -7,3 +7,5 @@ export const initializedDB = async () => {
 		console.log(`DB error: ${error.message}`);
 	}
 };
+
+module.exports = { initializedDB };
