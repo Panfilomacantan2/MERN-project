@@ -32,14 +32,14 @@ app.use('/api/login', loginRoutes);
 // const dashBoardRoutes = require('./routes/dashBoard');
 // app.use('/api/dashboard', dashBoardRoutes);
 
-app.get('/', (req, res) => {
+app.get('/admin', (req, res) => {
 	res.send('This Api is made by: @panfilo27');
 });
 
 // USER ROUTES
 app.use('/api/user', userRoutes);
 // POST ROUTES
-app.use('/api/post', postRoutes);
+app.use('/', postRoutes);
 // MESSAGE ROUTES
 app.use('/api/message', messageRoutes);
 
